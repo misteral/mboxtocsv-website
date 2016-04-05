@@ -30,6 +30,7 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
+    <link rel="stylesheet" href="custombox.min.css">
   </head>
 
 <body>
@@ -37,10 +38,22 @@
         <div class="Nav">
         <a href="/">Home</a>
         <a href="mailto:mboxtocsv@itbeaver.co">Contact</a>
-        <a href="https://github.com/fuermosi777/wordmark-issue/issues">Report issue</a>
+        <a href="#" id="reporter">Report issue</a>
     </div>
     <div class="Footer">
         Copyright © 2016 <a href="http://itbeaver.co">Alexander Bobrov</a>. All rights reserved.
     </div>
     {% include analytics.html %}
+    <script src="{{ site.baseurl }}/custombox.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('reporter').addEventListener('click', function( e ) {
+            Custombox.open({
+                target: '#modal',
+                effect: 'fadein'
+            });
+            e.preventDefault();
+        });
+    });
+    </script>
 </body>
