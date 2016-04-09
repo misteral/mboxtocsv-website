@@ -8,15 +8,47 @@ permalink: /report/
     <img src="{{ site.baseurl }}/images/logo.png" class="logo" />
     <h1>MBOX To CSV Converter<span class="badge">1.0.0</span></h1>
     <h2 class="subtitle">Report issue.</h2>
-<form>
-  <div class="form-group">
-    <label for="email">Email address</label>
-    <input type="email" class="form-control" id="email" placeholder="Email" data-cip-id="email">
+  <div id="form-wrap">
+    <form id="formx" action="javascript:void(null);" onsubmit="call()">
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" id="email" placeholder="Email" data-cip-id="email">
+      </div>
+      <div class="form-group">
+        <label for="issue">Issue</label>
+        <textarea class="form-control" id="issue" rows="10" placeholder="Issue" data-cip-id="issue"></textarea>
+      </div>
+      <button type="submit" class="btn store-link fill">Submit issue</button>
+    </form>
   </div>
-  <div class="form-group">
-    <label for="issue">Issue</label>
-    <textarea class="form-control" id="issue" rows="10" placeholder="Issue" data-cip-id="issue"></textarea>
-  </div>
-  <button type="submit" class="btn store-link fill">Submit issue</button>
-</form>
 </div>
+
+<script type="text/javascript" src="/qwest.min.js"></script>
+
+<script type="text/javascript" language="javascript">
+  function call() {
+    var email = document.getElementById ( "email" ).value;
+    var desc = document.getElementById ( "issue" ).value;
+    qwest.post('http://codehq.itbeaver.co/api/v3/projects/125/issues', {
+            title: 'Isssue from ' + email,
+            description: desc
+         },
+         {
+      cache:true,
+      headers:{
+          'PRIVATE-TOKEN': 'fM3eX3oKuMk_ELGtcoGN'
+      }
+    }
+         )
+         .then(function() {
+            removeForm();
+         })
+         .catch(function(e, xhr, response) {
+            console.log('Error', e)
+         });
+
+    }
+  function removeForm(){
+    document.getElementById("form-wrap").innerHTML = "<p class='subtitle'>Issue sended. We try to fix it as soon as posible and send a message for you.</p>"
+  }
+</script>
