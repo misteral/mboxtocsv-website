@@ -28,6 +28,14 @@ background: linear-gradient(to bottom, #1e1e20 0%,#4a4a4a 100%); /* W3C, IE10+, 
     -webkit-font-smoothing: antialiased;
 }
 
+
+.mac-badge {
+    display:inline-block;
+    overflow:hidden;
+    background:url('/images/Download_on_the_Mac_App_Store_Badge_US-UK_165x40.svg') no-repeat;
+    width:165px;
+    height:40px;
+}
 .Footer {
     margin: 0 0 60px;
     font-size: 1.4rem;
@@ -88,7 +96,7 @@ background: linear-gradient(to bottom, #1e1e20 0%,#4a4a4a 100%); /* W3C, IE10+, 
     }
     .store-buttons {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         width: 400px;
         margin: 0 auto;
     }
