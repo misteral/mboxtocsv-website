@@ -96,6 +96,12 @@ background: linear-gradient(to bottom, #1e1e20 0%,#4a4a4a 100%); /* W3C, IE10+, 
     }
     .store-buttons {
         display: flex;
+        justify-content: space-around;
+        width: 400px;
+        margin: 0 auto;
+    }
+    .store-buttons-center {
+        display: flex;
         justify-content: center;
         width: 400px;
         margin: 0 auto;
