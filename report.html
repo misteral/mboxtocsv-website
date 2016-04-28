@@ -31,7 +31,8 @@ permalink: /report/
     var desc = document.getElementById ( "issue" ).value;
     qwest.post('http://codehq.itbeaver.co/api/v3/projects/125/issues', {
             title: 'Isssue from ' + email,
-            description: desc
+            description: desc,
+            assignee_id: 2
          },
          {
       cache:true,
